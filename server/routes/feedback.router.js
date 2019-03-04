@@ -1,7 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const pg = require('pg');
 const pool = require('../modules/pool');
+// const pool = pg.Pool({
+//     host: 'localhost', 
+//     port: 5432,
+//     database: 'prime_feedback', 
+//     max: 10, 
+//     idleTimeoutMillis: 30000 
+// });
 
+pool.on('connect', () => {
+    console.log('Postgresql connected');
+});
+pool.on('error',(error) => {
+    console.log('Error with postgres pool', error);
+});
 
 // router.get('/', (req, res) => {
 //     pool.query('SELECT * FROM "feedback";').then((result) => {

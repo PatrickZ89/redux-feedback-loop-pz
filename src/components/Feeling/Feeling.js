@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 
 class Feeling extends Component {
@@ -26,6 +26,7 @@ class Feeling extends Component {
             type: 'SET_FEELING', payload: this.state.newFeedback.feeling
         }
         this.props.dispatch(action);
+        this.props.history.push('/understanding');
     }
 
 
@@ -35,9 +36,7 @@ class Feeling extends Component {
                 <h2>How are you feeling today?</h2>
                 <br />
                 <form onSubmit={this.handleNext}>
-                    <label>
-                        Feeling?
-                    </label>
+                   
                     <input
                         type="number"
                         placeholder="Feeling"
@@ -45,6 +44,13 @@ class Feeling extends Component {
                     />
                     <button type="submit">Next</button>
                 </form>
+                <div>
+                    <h2>Review Your Feedback</h2>
+                </div>
+                <p>Feeling: {this.props.feelingReducer}</p>
+                <p>Understanding: {this.props.understandingReducer}</p>
+                <p>Support: {this.props.supportReducer}</p>
+                <p>Comments: {this.props.commentsReducer}</p>
             </div>
         );
     }

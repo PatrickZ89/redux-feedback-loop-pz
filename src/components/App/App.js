@@ -1,48 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import {HashRouter as Router, Route} from 'react-router-dom';
+// import axios from 'axios';
 import './App.css';
 import Feeling from '../Feeling/Feeling'
+import Understanding from '../Understanding/Understanding'
+import Support from '../Support/Support'
+import Comments from '../Comments/Comments'
+import Review from '../Review/Review'
+import Confirmation from '../Confirmation/Confirmation'
 
 class App extends Component {
-  state = {
-    newFeedback: {
-      feeling: 0,
-      understanding: '',
-      support: '',
-      comments: '',
-    },
-  }
-
-
-  handleChangeFor = (event) => {
-    console.log('setting');
-    
-    this.setState({
-      newFeedback: {
-        feeling: event.target.value,
-      }
-    });
-  }
-
-
-  handleNext = (event) => {
-    event.preventDefault();
-    let action = {
-      type: 'SET_FEELING', payload: this.state.newFeedback.feeling
-    }
-    this.props.dispatch(action);
-  }
-   
-   
-    // axios({
-    //   method: 'POST',
-    //   url: '/feedback',
-    //   data: this.state.newFeedback
-
-    // })
   
-
+  
   render() {
     return (
       <div className="App">
@@ -50,14 +20,16 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        <Feeling />
-        <div>
-          <h2>Review Your Feedback</h2>
-        </div>
-        <p>Feeling: {this.props.feelingReducer}</p>
-        <p>Understanding: {this.state.newFeedback.understanding}</p>
-        <p>Support: {this.state.newFeedback.support}</p>
-        <p>Comments: {this.state.newFeedback.comments}</p>
+        <Router>
+          <div>
+          <Route path="/feeling" component={Feeling} />
+          <Route path="/understanding" component={Understanding} />
+          <Route path="/support" component={Support} />
+          <Route path="/comments" component={Comments} />
+          <Route path="/review" component={Review} />
+          <Route path="/confirmation" component={Confirmation} />
+          </div>
+        </Router>  
       </div>
     );
   }
