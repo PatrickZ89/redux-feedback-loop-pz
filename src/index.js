@@ -47,10 +47,6 @@ const commentsReducer = (state = '', action) => {
     return state;
 }
 
-
-
-
-
 const storeInstance = createStore(
     combineReducers({
         feelingReducer,

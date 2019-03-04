@@ -6,8 +6,7 @@ import axios from 'axios';
 
 class Review extends Component {
  
-
-
+    
     handleSubmitClick = (event) => {
         console.log('Submitting!');
         event.preventDefault();
@@ -22,7 +21,6 @@ class Review extends Component {
                 comments: this.props.commentsReducer
             }
           })
-
         this.props.history.push('/confirmation');
       }
 

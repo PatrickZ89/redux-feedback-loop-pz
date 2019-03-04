@@ -17,3 +17,7 @@
   font-size: large;
 }
 
+.disabled {
+  pointer-events: none;
+  color: gray;
+}

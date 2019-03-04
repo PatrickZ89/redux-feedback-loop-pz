@@ -26,7 +26,6 @@ pool.on('error',(error) => {
 //     });
 // })
 
-
 router.post('/', (req, res) => {
     console.log('post route was hit');
     pool.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")

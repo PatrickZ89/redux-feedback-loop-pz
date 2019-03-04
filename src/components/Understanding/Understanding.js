@@ -51,6 +51,7 @@ class Understanding extends Component {
                 <p>Understanding: {this.props.understandingReducer}</p>
                 <p>Support: {this.props.supportReducer}</p>
                 <p>Comments: {this.props.commentsReducer}</p>
+                <button className="disabled">INCOMPLETE</button>
             </div>
         );
     }
