@@ -15,7 +15,7 @@ class Confirmation extends Component {
     );
   }
 }
-
+//connecting to redux
 const mapReduxStateToProps = (reduxState) => {
   return reduxState;
 };

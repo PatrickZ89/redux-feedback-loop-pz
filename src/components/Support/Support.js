@@ -11,6 +11,7 @@ class Support extends Component {
     };
 
 
+// setting local state before linking with redux
     handleChangeFor = (event) => {
         console.log('Setting to:', event.target.value);
         this.setState({
@@ -20,12 +21,14 @@ class Support extends Component {
         });
     }
 
+// storing in redux
     handleNext = (event) => {
         event.preventDefault();
         let action = {
             type: 'SET_SUPPORT', payload: this.state.newFeedback.support
         }
         this.props.dispatch(action);
+    // redirecting
         this.props.history.push('/comments');
     }
 
@@ -56,7 +59,7 @@ class Support extends Component {
         );
     }
 }
-
+//connecting to redux
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 };

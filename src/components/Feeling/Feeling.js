@@ -10,7 +10,7 @@ class Feeling extends Component {
         },
     };
 
-
+// setting local state before linking with redux
     handleChangeFor = (event) => {
         console.log('Setting to:', event.target.value);
         this.setState({
@@ -20,12 +20,14 @@ class Feeling extends Component {
         });
     }
 
+// storing in redux
     handleNext = (event) => {
         event.preventDefault();
         let action = {
             type: 'SET_FEELING', payload: this.state.newFeedback.feeling
         }
         this.props.dispatch(action);
+    // redirecting
         this.props.history.push('/understanding');
     }
 
@@ -56,7 +58,7 @@ class Feeling extends Component {
         );
     }
 }
-
+//connecting to redux
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 };

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 class Review extends Component {
  
-    
+// sending redux values to the server
     handleSubmitClick = (event) => {
         console.log('Submitting!');
         event.preventDefault();
@@ -21,6 +21,7 @@ class Review extends Component {
                 comments: this.props.commentsReducer
             }
           })
+    // redirecting
         this.props.history.push('/confirmation');
       }
 
@@ -38,7 +39,7 @@ class Review extends Component {
     );
   }
 }
-
+//connecting to redux
 const mapReduxStateToProps = (reduxState) => {
   return reduxState;
 };

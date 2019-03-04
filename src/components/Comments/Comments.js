@@ -8,6 +8,7 @@ class Comments extends Component {
         },
     };
 
+// setting local state before linking with redux
     handleChangeFor = (event) => {
         console.log('Setting to:', event.target.value);
         this.setState({
@@ -16,13 +17,14 @@ class Comments extends Component {
             }
         });
     }
-
+// storing in redux
     handleNext = (event) => {
         event.preventDefault();
         let action = {
             type: 'SET_COMMENTS', payload: this.state.newFeedback.comments
         }
         this.props.dispatch(action);
+    // redirecting
         this.props.history.push('/review');
     }
 
@@ -53,6 +55,7 @@ class Comments extends Component {
     }
 }
 
+//connecting to redux
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 };
